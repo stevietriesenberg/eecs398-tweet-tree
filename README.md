@@ -4,23 +4,27 @@ Last semester's demo on graphing hashtag usage can be found [here](https://githu
 
 ## Requirements
 
-### [tweepy](http://www.tweepy.org)
+### [twarc](https://github.com/DocNow/twarc)
 
 ```
-$ pip3 install tweepy
+$ pip3 install twarc
 ```
 - created specifically to pull data from Twitter
 
-- no need to index into large dictionaries or format request URLs
+- handles authentication in one line
 
-### [matplotlib](https://matplotlib.org/2.2.2/index.html)
+- not very well-documented, but it has the reply-searching functionality we're looking for
+
+### [anytree](https://anytree.readthedocs.io/en/latest/)
 
 ```
-pip3 install matplotlib
+pip3 install anytree
 ```
-- good for plotting data
+- simple and easy to use
 
-- "not the best out there, but easy to use" - Amrit
+- gives node functionality to any user-defined class
+
+- builds AND renders trees
 
 
 ## What's included?
@@ -41,13 +45,13 @@ pip3 install matplotlib
 
 - sign into Twitter, then click "Create New App" in the upper right
 
-- fill out the name, description, and website for your applicaiton.  Check the "Developer Agreement" box and finish creating your app!
+- fill out the name, description, and website for your application.  Check the "Developer Agreement" box and finish creating your app!
 
 - under the name of your application, find and click the "Keys and Access Tokens" tab
 
 ### Consumer Keys
 
-- located under Applicaiton Settings
+- located under Application Settings
 
 - copy and paste these keys into ``secret.py``
 
@@ -62,32 +66,34 @@ pip3 install matplotlib
 
 ### TODO: import libraries
 
-- ``import tweepy``
+- ``from twarc import Twarc``
 
-- ``import matplotlib``
+- ``from anytree import NodeMixin, RenderTree``
 
 - ``from secret import *``
 
 ### TODO: create a new Twitter session
 
-- check out the tweepy documentation on [getting started](http://tweepy.readthedocs.io/en/v3.5.0/getting_started.html)
+- check out "Using as a Library" in the [twarc README](https://github.com/DocNow/twarc)
 
 - use keys/tokens from ``secret.py`` to create the session
 
 ### TODO: user input
 
-- ask the user (you) what hashtag to search
+- ask the user (you) for a Tweet ID
 
-### TODO: search for hashtag
+### TODO: get the user's requested Tweet
 
-- create new Tweet objects for each result
+- use your twarc session for this
 
-- we only need the time each tweet was posted, but other data may be useful for debugging or other data analysis
+- the Tweet will be represented as a large dictionary
 
-### TODO: graph timestamps from tweets in a histogram
+### TODO: implement get_replies() and call it to build the tree
 
-- check out the matplotlib documentation on [histograms](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.hist.html#matplotlib.pyplot.hist) and [subplots](https://matplotlib.org/examples/pylab_examples/subplots_demo.html)
+- we have to be resourceful here - there's no documentation on twarc's reply functionality, but we can look at twarc's [test file](https://github.com/DocNow/twarc/blob/master/test_twarc.py) on GitHub to figure out how to use it
 
-- this is just one analysis you could do on Twitter data
+- "take the recursive leap of faith!"
 
-- try something on your own!
+### TODO: display the tree
+
+- use anytree's ``RenderTree`` functionality
