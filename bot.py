@@ -15,14 +15,12 @@ class Tweet(NodeMixin):
 # TODO: implement get_replies()
 def get_replies(twarc_session, tweetID_in, parent = None):
 
-# TODO: generate Twarc Twitter session
+# TODO: generate twarc Twitter session
 
 # TODO: ask user for Tweet ID
 
-# TODO: get tweet using Twarc
+# TODO: get tweet using twarc
 
 # TODO: get replies recursively and build tree using get_replies()
 
-# TODO: print tree
-for pre, fill, node in RenderTree(root):
-    print(pre, node.__str__())
+# TODO: call RenderTree()
